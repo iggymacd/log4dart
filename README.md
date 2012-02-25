@@ -10,31 +10,30 @@ exists:
 
 The logger is used like this
 
-  ```
-  // Setup a logger builder function for the application
-  // this is the function invoked by the logger factory
-  // when asked to for a logger
-  LoggerFactory.configureBuilder((name) => new LoggerImpl(name, debugEnabled:true)); 
+```
+// Setup a logger builder function for the application
+// this is the function invoked by the logger factory
+// when asked to for a logger
+LoggerFactory.configureBuilder((name) => new LoggerImpl(name, debugEnabled:true)); 
 
-  // Get logger inside application code
-  Logger logger = LoggerFactory.getLogger("name");
-  ```
+// Get logger inside application code
+Logger logger = LoggerFactory.getLogger("name");
+```
 
 The logger supports nested diagnostic contexts which can be used to
 track application state like this
 
- ```
- logger.putContext("context-name", "context-message");
- logger.debug("handling $expr");
- try {
+```
+logger.putContext("context-name", "context-message");
+try {
   // log messages from now gets added a context-message
   :
-  logger.debug("something important happend");
- } finally {
-   // stop logging with context-message
-   logger.removeContext("context-name");
- }
- ```
+logger.debug("something important happend");
+} finally {
+  // stop logging with context-message
+  logger.removeContext("context-name");
+}
+```
 
 TODO
 ----

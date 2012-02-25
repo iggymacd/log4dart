@@ -1,6 +1,6 @@
 Log4Dart
 ========
-**Log4Dart** is a logger for Dart inspired by Slf4J. The logger itself
+**Log4Dart** is a logger for Dart inspired by [Slf4J][http://www.slf4j.org]. The logger itself
 is a interface and thus supports multiple implementations.
 
 The same goes for the appenders, currently the following appenders

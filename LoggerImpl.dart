@@ -2,7 +2,7 @@
  * A logger implementation that logs to the console
  */
 class LoggerImpl implements Logger {
-   static Map<String, Logger> _loggerCache;
+   static Map<String, String> _context;
   
    final Appender _appender;
    final bool debugEnabled;
@@ -10,28 +10,13 @@ class LoggerImpl implements Logger {
    final bool infoEnabled;
    final bool warnEnabled;
    final String name;
-   Map<String, String> _context;
    
    LoggerImpl(this.name, [this.debugEnabled=false, this.errorEnabled=true, this.infoEnabled=false, this.warnEnabled=true]) : _appender = new ConsoleAppender() { 
-     _context = new LinkedHashMap();
-   }
-   
-   /**
-    * If logger associated with name does not already exists then call ifAbsent to create and return it
-    */
-   factory LoggerImpl.putIfAbsent(String name, Logger ifAbsent()) {
-     if(_loggerCache == null) {
-       _loggerCache = new Map<String, Logger>();
+     if(_context == null) {
+       _context = new LinkedHashMap();
      }
-     if(!_loggerCache.containsKey(name)) {
-       _loggerCache[name] = ifAbsent();
-     }
-     
-     Logger logger = _loggerCache[name];
-     Expect.isNotNull(logger);
-     return logger;
    }
-
+  
    debug(String message) {
      if(debugEnabled) _append("DEBUG", message);
    }

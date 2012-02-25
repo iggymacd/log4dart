@@ -8,7 +8,7 @@ implementation ships with Log4Dart
   * **ConsoleAppender** a appender that logs to the console
   * **LoggerImpl** a simple logger implementation with diagnostic support
 
-The logger accessed through  the **LoggerFactory** class as demonstrated below
+The logger is accessed through  the **LoggerFactory** like this
 
 ```
 // Setup a logger builder function for the application

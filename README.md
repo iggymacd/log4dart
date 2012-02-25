@@ -1,14 +1,13 @@
 Log4Dart
 ========
-**Log4Dart** is a logger for Dart inspired by [Slf4J][slf4j]. The logger itself
-is a interface and thus supports multiple implementations.
+**Log4Dart** is a logger for Dart inspired by [Slf4J][slf4j]. The logger and its appender are interface and thus supports multiple implementations.
 
-The same goes for the appenders, currently the following appenders
-exists:
+It currently ships with the following implementations:
 
-  1. **ConsoleAppender** a appender that logs to the console.
+  . **ConsoleAppender** a appender that logs to the console
+  . **LoggerImpl** a simple logger implementation with diagnostic support
 
-The logger is used like this
+The logger accessed through  the **LoggerFactory** class as demonstrated below
 
 ```
 // Setup a logger builder function for the application

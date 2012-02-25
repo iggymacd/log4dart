@@ -13,7 +13,7 @@ The logger is used like this
 ```
 // Setup a logger builder function for the application
 // this is the function invoked by the logger factory
-// when asked to for a logger
+// when asked for a logger
 LoggerFactory.configureBuilder((name) => new LoggerImpl(name, debugEnabled:true)); 
 
 // Get logger inside application code
@@ -28,7 +28,7 @@ logger.putContext("context-name", "context-message");
 try {
   // log messages from now gets added a context-message
   :
-logger.debug("something important happend");
+  logger.debug("something important happend");
 } finally {
   // stop logging with context-message
   logger.removeContext("context-name");

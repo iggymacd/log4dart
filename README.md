@@ -10,8 +10,15 @@ exists:
 
 The logger is used like this
 
-  1. Setup once pr application: ``LoggerFactory.putIfAbsent("name", new LoggerImpl("name", debugEnabled:true));
-  1. Get logger in application: ``Logger logger = LoggerFactory.getLogger("name");
+  ```
+  // Setup a logger builder function for the application
+  // this is the function invoked by the logger factory
+  // when asked to for a logger
+  LoggerFactory.configureBuilder((name) => new LoggerImpl(name, debugEnabled:true)); 
+
+  // Get logger inside application code
+  Logger logger = LoggerFactory.getLogger("name");
+  ```
 
 The logger supports nested diagnostic contexts which can be used to
 track application state like this

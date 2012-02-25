@@ -10,15 +10,13 @@ exists:
 
 The logger is used like this
 
-# once pr application (fx. in your 'libary' file)
-LoggerFactory.putIfAbsent("name", new LoggerImpl("name", debugEnabled:true));
-
-# in your application code
-Logger logger = LoggerFactory.getLogger("name");
+  1. Setup once pr application: ``LoggerFactory.putIfAbsent("name", new LoggerImpl("name", debugEnabled:true));
+  1. Get logger in application: ``Logger logger = LoggerFactory.getLogger("name");
 
 The logger supports nested diagnostic contexts which can be used to
 track application state like this
 
+ ```
  logger.putContext("context-name", "context-message");
  logger.debug("handling $expr");
  try {
@@ -29,6 +27,7 @@ track application state like this
    // stop logging with context-message
    logger.removeContext("context-name");
  }
+ ```
 
 TODO
 ----

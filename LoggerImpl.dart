@@ -1,5 +1,5 @@
 /**
- * A logger implementation that logs to the console
+ * A logger implementation with appender and diagnostic support. Defaults to console logging.
  */
 class LoggerImpl implements Logger {
    static Map<String, String> _context;

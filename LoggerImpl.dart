@@ -4,16 +4,20 @@
 class LoggerImpl implements Logger {
    static Map<String, String> _context;
   
-   final Appender _appender;
    final bool debugEnabled;
    final bool errorEnabled;
    final bool infoEnabled;
    final bool warnEnabled;
    final String name;
    
-   LoggerImpl(this.name, [this.debugEnabled=false, this.errorEnabled=true, this.infoEnabled=false, this.warnEnabled=true]) : _appender = new ConsoleAppender() { 
+   Appender _appender;
+   
+   LoggerImpl(this.name, [this.debugEnabled=false, this.errorEnabled=true, this.infoEnabled=false, this.warnEnabled=true, this._appender=null]) { 
      if(_context == null) {
        _context = new LinkedHashMap();
+     }
+     if(_appender == null) {
+       _appender = new ConsoleAppender();
      }
    }
   

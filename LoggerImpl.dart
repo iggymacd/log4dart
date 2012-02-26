@@ -65,7 +65,7 @@ class LoggerImpl implements Logger {
      String ctx = "";
      _context.forEach(f(k,v) => ctx += "$v:");
      // TODO format
-     _appender.doAppend("[$level] $name [$ctx] $message");
+     _appender.doAppend("[$level] $name${ctx.isEmpty() ? ':' : ' [$ctx]'} $message");
    }
    
    String _format(String format, List args) {
